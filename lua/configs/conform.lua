@@ -3,8 +3,9 @@ local options = {
     lua = { "stylua" },
     -- css = { "prettier" },
     -- html = { "prettier" },
-    cpp = { "clang_format" }, -- C++ clang_format add
-    c = { "clang_format" }, -- C as well
+    python = { "black" },
+    cpp = { "clang_format" },
+    c = { "clang_format" },
   },
 
   formatters = {
