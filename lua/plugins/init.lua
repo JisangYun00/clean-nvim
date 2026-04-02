@@ -43,11 +43,6 @@ return {
   -- Debug Adapter Protocol (DAP) Configuration
   {
     "mfussenegger/nvim-dap",
-    config = function()
-      -- DAP configuration without keymaps (keymaps are in mappings.lua)
-      local dap = require "dap"
-      -- Additional DAP setup can go here if needed
-    end,
   },
 
   {
@@ -89,21 +84,10 @@ return {
       "mfussenegger/nvim-dap",
       "rcarriga/nvim-dap-ui",
     },
-    config = function(_, opts)
-      -- local path = "~/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
+    config = function()
       require("dap-python").setup("python3")
-      -- Uncomment this line if you have the mappings file
-      -- require("core.utils").load_mappings("dap_python")
     end,
   },
-  {
-    "nvimtools/none-ls.nvim",
-    event = "VeryLazy",
-    opts = function()
-      return require "configs.null-ls"
-    end,
-  },
-
   {
     "saecki/crates.nvim",
     tag = "stable",
@@ -115,9 +99,6 @@ return {
   },
 
   -- Navigation and Preview Plugins
-  {
-    "nvim-neotest/nvim-nio",
-  },
   {
     "rmagatti/goto-preview",
     lazy = false,
@@ -132,10 +113,18 @@ return {
     lazy = false,
   },
 
+  {
+    "nvim-treesitter/nvim-treesitter",
+    tag = "v0.10.0",
+    opts = {
+      -- NvChad defaults: lua, luadoc, printf, vim, vimdoc
+      ensure_installed = { "lua", "luadoc", "printf", "vim", "vimdoc", "c", "cpp", "python", "rust" },
+    },
+  },
+
   -- Code Structure and Documentation Navigation
   {
     "stevearc/aerial.nvim",
-    opts = {},
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
       "nvim-tree/nvim-web-devicons",
@@ -177,11 +166,6 @@ return {
   {
     "p00f/clangd_extensions.nvim",
     config = function() end,
-    opts = {
-      inlay_hints = {
-        inline = false,
-      },
-    },
     ft = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
   },
 }
