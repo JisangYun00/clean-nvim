@@ -13,12 +13,23 @@ NvChad 기반 개인 설정. Neovim 0.10+ 필요.
 
 ### 1. Neovim (0.10+)
 
-```bash
-# Ubuntu - 빌드 또는 공식 PPA 사용
-sudo add-apt-repository ppa:neovim-ppa/unstable
-sudo apt update && sudo apt install neovim
+소스 빌드 (권장):
 
-# macOS
+```bash
+# 빌드 의존성 설치
+sudo apt install ninja-build gettext cmake unzip curl build-essential
+
+git clone https://github.com/neovim/neovim
+cd neovim
+git checkout stable
+make CMAKE_BUILD_TYPE=RelWithDebInfo
+sudo make install
+# 기본 설치 위치: /usr/local
+```
+
+macOS:
+
+```bash
 brew install neovim
 ```
 
