@@ -327,6 +327,15 @@
 
 ---
 
+## 토글
+
+| 키 | 동작 |
+|---|---|
+| `<Leader>tf` | Format on save 토글 |
+| `<Leader>tl` | LSP 토글 (stop / restart) |
+
+---
+
 ## NvChad 기본
 
 | 키 | 동작 |
@@ -361,7 +370,7 @@
 |---|---|---|
 | Lua | stylua | 저장 시 자동 |
 | C / C++ | clang-format | Google style, 저장 시 자동 |
-| Python | black (null-ls) | 저장 시 자동 |
+| Python | black (conform) | 저장 시 자동 |
 
 ---
 
