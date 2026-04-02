@@ -10,6 +10,7 @@ return {
   -- LSP Configuration
   {
     "neovim/nvim-lspconfig",
+    lazy = false,
     config = function()
       require "configs.lspconfig"
     end,
