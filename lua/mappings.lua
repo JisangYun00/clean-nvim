@@ -59,6 +59,21 @@ map("n", "<C-j>", "<cmd>TmuxNavigateDown<CR>", { desc = "Window down" })
 map("n", "<C-k>", "<cmd>TmuxNavigateUp<CR>", { desc = "Window up" })
 
 -- LSP Mappings
+map("n", "<leader>tl", function()
+  local clients = vim.lsp.get_clients({ bufnr = 0 })
+  if #clients > 0 then
+    vim.lsp.stop_client(clients)
+    print("LSP stopped")
+  else
+    if vim.bo.modified then
+      print("LSP restart: save the file first (:w), then toggle again")
+    else
+      vim.cmd("e")
+      print("LSP restarted")
+    end
+  end
+end, { desc = "Toggle LSP" })
+
 map("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { desc = "LSP definition" })
 map("n", "gdv", "<cmd>vsplit | lua vim.lsp.buf.definition()<CR>", { desc = "LSP definition (vertical split)" })
 map(
@@ -69,18 +84,13 @@ map(
 )
 
 -- Cursor Movement
-map("n", "<leader>lj", "10jzz", { desc = "Move cursor up by 10 lines" })
-map("n", "<leader>lk", "10kzz", { desc = "Move cursor down by 10 lines" })
+map("n", "<leader>lj", "10jzz", { desc = "Move cursor down by 10 lines" })
+map("n", "<leader>lk", "10kzz", { desc = "Move cursor up by 10 lines" })
 
 -- DAP Python
 map("n", "<Leader>dpr", function()
   require("dap-python").test_method()
 end, { desc = "Test Python method" })
-
--- Run entire Python file
--- map("n", "<Leader>pr", function()
---   vim.cmd "!python3 %"
--- end, { desc = "Run Python file" })
 
 -- Run entire Python file
 map("n", "<Leader>pr", function()

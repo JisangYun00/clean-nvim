@@ -28,6 +28,7 @@ return {
         "clangd",
         "clang-format",
         "codelldb",
+        "rustfmt",
       },
     },
   },
