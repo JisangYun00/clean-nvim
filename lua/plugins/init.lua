@@ -19,7 +19,6 @@ return {
     "williamboman/mason.nvim",
     opts = {
       ensure_installed = {
-        "rust-analyzer",
         -- "lua-language-server",
         "pyright",
         "black",
@@ -36,24 +35,8 @@ return {
   -- Rust Configuration
   {
     "mrcjkb/rustaceanvim",
-    version = "^5", -- Recommended
-    lazy = false, -- This plugin is already lazy
+    version = "^5",
     ft = "rust",
-    config = function()
-      vim.g.rustaceanvim = {
-        -- Let rustaceanvim handle everything automatically
-      }
-
-      vim.keymap.set("n", "<space>k", "<Cmd>RustLsp hover actions<CR>", { noremap = true, silent = true })
-    end,
-  },
-
-  {
-    "rust-lang/rust.vim",
-    ft = "rust",
-    init = function()
-      vim.g.rustfmt_autosave = 1
-    end,
   },
 
   -- Debug Adapter Protocol (DAP) Configuration
@@ -133,7 +116,6 @@ return {
   -- Navigation and Preview Plugins
   {
     "nvim-neotest/nvim-nio",
-    lazy = false,
   },
   {
     "rmagatti/goto-preview",
