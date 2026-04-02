@@ -107,7 +107,7 @@ return {
     },
     config = function(_, opts)
       -- local path = "~/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
-      require("dap-python").setup(python3)
+      require("dap-python").setup("python3")
       -- Uncomment this line if you have the mappings file
       -- require("core.utils").load_mappings("dap_python")
     end,
@@ -191,22 +191,6 @@ return {
   },
 
   -- C/C++ Configuration
-  {
-    "hrsh7th/nvim-cmp",
-    event = "InsertEnter",
-    dependencies = {
-      "hrsh7th/cmp-nvim-lsp",
-      "hrsh7th/cmp-buffer",
-      "hrsh7th/cmp-path",
-      "hrsh7th/cmp-cmdline",
-      "L3MON4D3/LuaSnip",
-      "saadparwaiz1/cmp_luasnip",
-    },
-    config = function()
-      require "configs.cmp"
-    end,
-  },
-
   {
     "p00f/clangd_extensions.nvim",
     lazy = true,

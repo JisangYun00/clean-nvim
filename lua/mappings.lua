@@ -10,19 +10,18 @@ map("i", "jk", "<ESC>")
 map("n", "<Leader>dl", "<cmd>lua require'dap'.step_into()<CR>", { desc = "Debugger step into" })
 map("n", "<Leader>dj", "<cmd>lua require'dap'.step_over()<CR>", { desc = "Debugger step over" })
 map("n", "<Leader>dk", "<cmd>lua require'dap'.step_out()<CR>", { desc = "Debugger step out" })
-map("n", "<Leader>dc>", "<cmd>lua require'dap'.continue()<CR>", { desc = "Debugger continue" })
+map("n", "<Leader>dc", "<cmd>lua require'dap'.continue()<CR>", { desc = "Debugger continue" })
 map("n", "<Leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<CR>", { desc = "Debugger toggle breakpoint" })
 map(
   "n",
-  "<Leader>dd",
+  "<Leader>dbc",
   "<cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>",
   { desc = "Debugger set conditional breakpoint" }
 )
 map("n", "<Leader>de", "<cmd>lua require'dap'.terminate()<CR>", { desc = "Debugger reset" })
-map("n", "<Leader>dr", "<cmd>lua require'dap'.run_last()<CR>", { desc = "Debugger run last" })
+map("n", "<Leader>drl", "<cmd>lua require'dap'.run_last()<CR>", { desc = "Debugger run last" })
 
 -- Rust-specific Mappings
-map("n", "<Leader>dt", "<cmd>lua vim.cmd('RustLsp testables')<CR>", { desc = "Debugger testables" })
 map("n", "<Leader>k", function()
   vim.cmd.RustLsp { "hover", "actions" }
 end, { desc = "Rust hover actions" })
@@ -48,10 +47,10 @@ map("n", "<Leader>vm", "<cmd>RustLsp view mir<CR>", { desc = "View MIR" })
 map("n", "<Leader>fc", "<cmd>RustLsp flyCheck run<CR>", { desc = "Run fly check" })
 
 -- Window Navigation
-map("n", "C-h", "<cmd> TmuxNvigateLeft<CR>", { desc = "Window left" })
-map("n", "C-l", "<cmd> TmuxNvigateRight<CR>", { desc = "Window right" })
-map("n", "C-j", "<cmd> TmuxNvigateDown<CR>", { desc = "Window down" })
-map("n", "C-k", "<cmd> TmuxNvigateUp<CR>", { desc = "Window up" })
+map("n", "<C-h>", "<cmd>TmuxNavigateLeft<CR>", { desc = "Window left" })
+map("n", "<C-l>", "<cmd>TmuxNavigateRight<CR>", { desc = "Window right" })
+map("n", "<C-j>", "<cmd>TmuxNavigateDown<CR>", { desc = "Window down" })
+map("n", "<C-k>", "<cmd>TmuxNavigateUp<CR>", { desc = "Window up" })
 
 -- LSP Mappings
 map("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { desc = "LSP definition" })
